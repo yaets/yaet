@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+body {
+    width: 100%;
+}
+
+#tb {
+    border-collapse: collapse;
+    border: solid 1px black;
+    text-align: center;
+    margin: 20px auto;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#tb td {
+    border-collapse: collapse;
+    border: solid 1px black;
+}
