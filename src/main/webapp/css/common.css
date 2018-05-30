@@ -9,15 +9,15 @@ html {
 body {
     margin: 0;
     position: relative;
-    font-family: 'FontAwesome', "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: "FontAwesome", "Lato", "Microsoft YaHei", sans-serif;
     font-size: 14px;
-    line-height: 2;
+    line-height: 1.5;
     color: #555;
     background: #eee;
 }
 
 div {
-    border: solid 1px black;
+    /*border: solid 1px black;*/
 }
 
 a:hover {
@@ -289,6 +289,7 @@ a:hover {
 .panel-heading {
     padding: 6px 9px;
     text-align: left;
+    margin-top: -1px;
 }
 
 .panel-body {

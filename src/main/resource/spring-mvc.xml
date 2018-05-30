@@ -19,9 +19,8 @@
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
-                <value>
-                    text/html;charset=UTF-8
-                </value>
+                <value>text/html;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
             </list>
         </property>
     </bean>
@@ -42,8 +41,8 @@
 
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"/>
-        <!-- 1024 * 1024 * 1024 * 4 = 4 GB -->
-        <property name="maxUploadSize" value="4294967296"/>
+        <!-- 1024 * 1024 * 1024 * 4 = 1073741824 * 4 = 4 GB -->
+        <property name="maxUploadSize" value="1073741824"/>
         <property name="maxInMemorySize" value="40960"/>
     </bean>
 </beans>

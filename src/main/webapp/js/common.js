@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var offsetToTop = 100;
+    var offsetToTop = 80;
     var $toTop = $('.my-to-top');
 
     $(window).on('scroll', function () {

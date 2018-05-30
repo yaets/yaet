@@ -4,6 +4,7 @@ import com.yaet.blog.pojo.User;
 import com.yaet.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,13 +17,27 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/listUser")
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
     public ModelAndView listUser(ModelAndView modelAndView) {
 
         List<User> users = userService.list();
         modelAndView.addObject("users", users);
 
         modelAndView.setViewName("listUser");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login_get(ModelAndView modelAndView) {
+
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ModelAndView login_put(ModelAndView modelAndView) {
+
+        modelAndView.setViewName("home");
         return modelAndView;
     }
 }

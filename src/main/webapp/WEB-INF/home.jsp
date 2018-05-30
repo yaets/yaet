@@ -18,7 +18,7 @@
     <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <%--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">--%>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link type="text/css" href="<%=basePath%>/css/bootstrap.css" rel="stylesheet">
     <link type="text/css" href="<%=basePath%>/css/bootstrap-theme.css" rel="stylesheet">
     <link type="text/css" href="<%=basePath%>/css/font-awesome.css" rel="stylesheet">
@@ -46,7 +46,7 @@
                     <ul class="nav navbar-nav">
                         <li class="my-user-nav1">
                             <c:if test="true">
-                                <a href="#contact"><span class="icon-signin">&nbsp;登陆</span></a>
+                                <a href="/login"><span class="icon-signin">&nbsp;登陆</span></a>
                             </c:if>
                             <c:if test="false">
                                 <a href="#contact"><span class="icon-cog">&nbsp;管理</span></a>
@@ -89,7 +89,7 @@
             <h5>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h6 class="panel-title icon-search">&nbsp;&nbsp;搜索</h6>
+                        <h5 class="panel-title icon-search">&nbsp;&nbsp;搜索</h5>
                     </div>
                     <div class="panel-body my-col">
                         <input class="form-control">&nbsp;&nbsp;
@@ -98,7 +98,7 @@
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h6 class="panel-title icon-reorder">&nbsp;&nbsp;分类</h6>
+                        <h5 class="panel-title icon-reorder">&nbsp;&nbsp;分类</h5>
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-pills">
@@ -125,7 +125,7 @@
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h6 class="panel-title icon-tags">&nbsp;&nbsp;标签</h6>
+                        <h5 class="panel-title icon-tags">&nbsp;&nbsp;标签</h5>
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-pills">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h6 class="panel-title icon-folder-open">&nbsp;&nbsp;归档</h6>
+                        <h5 class="panel-title icon-folder-open">&nbsp;&nbsp;归档</h5>
                     </div>
                     <div class="panel-body">
                         <div class="my-tag">&nbsp;<a>2017年12月 (123)</a></div>
