@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yaet.blog.mapper.UserMapper">
+
+    <cache type="com.yaet.blog.utils.RedisCache"/>
+
     <insert id="insert" parameterType="User">
         INSERT INTO user_ (userNmae) VALUES (#{userNmae})
     </insert>
+
     <delete id="delete" parameterType="User">
         DELETE FROM user_
         WHERE userId = #{userId}
     </delete>
+
     <update id="update" parameterType="User">
         UPDATE user_
         SET userPic = #{userPic}
         WHERE userId = #{userId}
     </update>
-    <select id="get" parameterType="java.lang.String" resultType="User">
+
+    <select id="get" parameterType="java.lang.String" resultType="User" useCache="true">
         SELECT *
         FROM user_
         WHERE userId = #{userId}
     </select>
-    <select id="list" resultType="User">
+
+    <select id="list" resultType="User" useCache="true">
         SELECT *
         FROM user_
     </select>

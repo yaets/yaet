@@ -5,8 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
-
     <!--设置数据池-->
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxIdle" value="${redis.maxIdle}"/>
@@ -24,13 +22,14 @@
         <property name="poolConfig" ref="poolConfig"/>
     </bean>
 
-    <bean id="redisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+    <bean id="stringRedisSerializerSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+    <bean id="jdkSerializationRedisSerializer" class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
         <property name="connectionFactory" ref="connectionFactory"/>
         <!--以下针对各种数据进行序列化方式的选择-->
-        <property name="keySerializer" ref="redisSerializer"/>
-        <property name="valueSerializer" ref="redisSerializer"/>
-        <property name="hashKeySerializer" ref="redisSerializer"/>
-        <!--<property name="hashValueSerializer" ref="redisSerializer"/>-->
+        <property name="keySerializer" ref="stringRedisSerializerSerializer"/>
+        <property name="valueSerializer" ref="jdkSerializationRedisSerializer"/>
+        <property name="hashKeySerializer" ref="stringRedisSerializerSerializer"/>
+        <!--<property name="hashValueSerializer" ref="stringRedisSerializerSerializer"/>-->
     </bean>
 </beans>

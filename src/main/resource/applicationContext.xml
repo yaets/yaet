@@ -11,7 +11,8 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.yaet.blog.service"/>
 
-    <context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath:*.properties" ignore-unresolvable="true"/>
+    <!--<context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>-->
 
     <!-- druid连接池配置 -->
     <bean id="dataSource"

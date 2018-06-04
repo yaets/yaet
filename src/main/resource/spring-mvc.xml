@@ -13,6 +13,7 @@
     </context:component-scan>
 
     <mvc:annotation-driven/>
+    <!-- 静态资源 -->
     <mvc:default-servlet-handler/>
 
     <bean id="mappingJackson2HttpMessageConverter"
@@ -26,11 +27,7 @@
     </bean>
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <ref bean="mappingJackson2HttpMessageConverter"></ref>
-            </list>
-        </property>
+        <property name="messageConverters" ref="mappingJackson2HttpMessageConverter"/>
     </bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

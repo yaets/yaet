@@ -1,13 +1,17 @@
 package com.yaet.blog.controller;
 
 import com.yaet.blog.pojo.User;
+import com.yaet.blog.redis.RedisRepository;
+import com.yaet.blog.redis.impl.UserRedisRepository;
 import com.yaet.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
@@ -17,7 +21,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ModelAndView listUser(ModelAndView modelAndView) {
 
         List<User> users = userService.list();

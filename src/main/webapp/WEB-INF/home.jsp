@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
@@ -18,7 +18,8 @@
     <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <%--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">--%>
+    <link type="text/css" href="<%=basePath%>/css/pace-theme-minimal.css" rel="stylesheet">
     <link type="text/css" href="<%=basePath%>/css/bootstrap.css" rel="stylesheet">
     <link type="text/css" href="<%=basePath%>/css/bootstrap-theme.css" rel="stylesheet">
     <link type="text/css" href="<%=basePath%>/css/font-awesome.css" rel="stylesheet">
@@ -165,6 +166,7 @@
 <div class="my-to-top">
     <i class="icon-2x icon-circle-arrow-up "></i>
 </div>
+</body>
 <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <%--<script src="https://cdn.bootcss.com/velocity/1.5.1/velocity.min.js"></script>--%>
@@ -173,6 +175,6 @@
 <script src="<%=basePath%>/js/velocity.ui.js"></script>
 <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
 <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <script src="<%=basePath%>/js/common.js"></script>
-</body>
 </html>
