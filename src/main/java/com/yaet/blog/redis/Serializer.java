@@ -1,14 +1,18 @@
-package com.yaet.blog.utils;
+package com.yaet.blog.redis;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class SerializeUtil {
-    public static byte[] serialize(Object object) {
+class Serializer {
+
+    static byte[] serialize(Object object) {
+
         ObjectOutputStream oos = null;
+
         ByteArrayOutputStream baos = null;
+
         try {
             // 序列化
             baos = new ByteArrayOutputStream();
@@ -21,9 +25,10 @@ public class SerializeUtil {
         return null;
     }
 
-    public static Object unserialize(byte[] bytes) {
+    static Object unserialize(byte[] bytes) {
         if (bytes == null)
             return null;
+
         ByteArrayInputStream bais = null;
         try {
             // 反序列化

@@ -1,20 +1,24 @@
-package com.yaet.blog.utils;
+package redis;
 
 import org.apache.commons.lang3.SerializationUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.support.SimpleValueWrapper;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.concurrent.Callable;
 
-public class RedisCacheUtil implements Cache {
+@Repository
+public class RedisCacheUtil2 implements Cache {
 
-    private Logger logger = LoggerFactory.getLogger(RedisCacheUtil.class);
+    private Logger logger = LoggerFactory.getLogger(RedisCacheUtil2.class);
 
+    @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override

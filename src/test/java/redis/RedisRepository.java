@@ -1,4 +1,4 @@
-package com.yaet.blog.redis;
+package redis;
 
 import java.util.List;
 

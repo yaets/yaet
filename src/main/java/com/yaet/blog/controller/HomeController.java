@@ -16,7 +16,7 @@ public class HomeController {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
-    @Resource(name="redisTemplate")
+    @Resource(name = "redisTemplate")
     private ListOperations<String ,String > listOps;
 
     @RequestMapping("/")

@@ -1,11 +1,11 @@
-package com.yaet.blog.redis.impl;
+package redis.impl;
 
 import com.yaet.blog.pojo.User;
-import com.yaet.blog.redis.RedisRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import redis.RedisRepository;
 
 import javax.annotation.Resource;
 import java.util.List;
