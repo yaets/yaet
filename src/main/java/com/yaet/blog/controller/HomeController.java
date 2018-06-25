@@ -1,28 +1,42 @@
 package com.yaet.blog.controller;
 
+import com.yaet.blog.utils.RedisCacheUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("")
 public class HomeController {
 
-    @Autowired
-    private RedisTemplate<String, String> redisTemplate;
+    private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
-    @Resource(name = "redisTemplate")
-    private ListOperations<String ,String > listOps;
+    @Autowired
+    private RedisCacheUtil redisCacheUtil;
 
     @RequestMapping("/")
     public ModelAndView toHome(ModelAndView modelAndView) {
-        listOps.size("abcde");
-        redisTemplate.dump("abc");
+        List<Object> articles = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Map<String, String> article = new HashMap<>();
+            article.put("content", "wode booke");
+            articles.add(article);
+        }
+
+        if (!redisCacheUtil.hasKey("content")) {
+            redisCacheUtil.set("content", articles);
+            LOGGER.info(redisCacheUtil.get("content").toString());
+        }
+
+        modelAndView.addObject("articles", articles);
         modelAndView.setViewName("home");
         return modelAndView;
     }

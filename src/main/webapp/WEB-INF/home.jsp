@@ -14,11 +14,11 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <%--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">--%>
     <link type="text/css" href="<%=basePath%>/css/pace-theme-minimal.css" rel="stylesheet">
     <link type="text/css" href="<%=basePath%>/css/bootstrap.css" rel="stylesheet">
     <link type="text/css" href="<%=basePath%>/css/bootstrap-theme.css" rel="stylesheet">
@@ -68,16 +68,26 @@
     </div>
 </nav>
 <div class="my-container">
-    <div class="my-content">
-        <div class="my-article">
-            <div>我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客</div>
-        </div>
-        <div class="my-article">
+    <div class="my-main">
+        <section>
+            <c:forEach items="${articles}" var="article">
+                <article>
+                    <div class="my-title">
+                        <div class="my-aa"></div>
+                    </div>
+                    <div class="my-content">${article.content}</div>
+                    <div class="social-share" data-disabled="google"></div>
+                </article>
+            </c:forEach>
+        </section>
+        <div class="my-bottom-navigation"></div>
+        <div class="my-article" style="display: none;">
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=90% height=90
                     src="http://music.163.com/outchain/player?type=2&id=557583281&auto=1&height=66">
             </iframe>
-            我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客
+            <span>我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客我的博客</span>
         </div>
+        <div class="my-footer"></div>
     </div>
     <div class="my-navigation">
         <div class="my-info">
@@ -162,7 +172,6 @@
         </div>
     </div>
 </div>
-<div class="my-footer"></div>
 <div class="my-to-top">
     <i class="icon-2x icon-circle-arrow-up "></i>
 </div>
@@ -176,5 +185,6 @@
 <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
 <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"></script>
 <script src="<%=basePath%>/js/common.js"></script>
 </html>

@@ -12,7 +12,6 @@
     <context:component-scan base-package="com.yaet.blog.service"/>
 
     <context:property-placeholder location="classpath:*.properties" ignore-unresolvable="true"/>
-    <!--<context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>-->
 
     <!-- druid连接池配置 -->
     <bean id="dataSource"
@@ -32,6 +31,23 @@
         <property name="typeAliasesPackage" value="com.yaet.blog.pojo"/>
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations" value="classpath:com/yaet/blog/mapper/*.xml"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>
+                            dialect=mysql
+                            offsetAsPageNum=false
+                            rowBoundsWithCount=false
+                            pageSizeZero=true
+                            reasonable=true
+                            supportMethodsArguments=false
+                            returnPageInfo=none
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->

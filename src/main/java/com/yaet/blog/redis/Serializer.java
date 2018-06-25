@@ -1,11 +1,16 @@
 package com.yaet.blog.redis;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 class Serializer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Serializer.class);
 
     static byte[] serialize(Object object) {
 
@@ -20,12 +25,13 @@ class Serializer {
             oos.writeObject(object);
             return baos.toByteArray();
         } catch (Exception e) {
+            LOGGER.error("序列化失败！(ERR_CD_0005)");
             e.printStackTrace();
         }
         return null;
     }
 
-    static Object unserialize(byte[] bytes) {
+    static Object deserialize(byte[] bytes) {
         if (bytes == null)
             return null;
 
@@ -36,6 +42,7 @@ class Serializer {
             ObjectInputStream ois = new ObjectInputStream(bais);
             return ois.readObject();
         } catch (Exception e) {
+            LOGGER.error("反序列化失败！(ERR_CD_0006)");
             e.printStackTrace();
         }
         return null;

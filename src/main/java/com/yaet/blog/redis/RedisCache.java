@@ -1,10 +1,14 @@
 package com.yaet.blog.redis;
 
+
 import org.apache.ibatis.cache.Cache;
 
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * 使用第三方缓存服务器，处理二级缓存
+ */
 public class RedisCache implements Cache {
 
     private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
@@ -29,7 +33,7 @@ public class RedisCache implements Cache {
 
     // 通过key从缓存对象中获取value
     public Object getObject(Object key) {
-        return Serializer.unserialize(Redis.getJedis().get(Serializer.serialize(key.toString())));
+        return Serializer.deserialize(Redis.getJedis().get(Serializer.serialize(key.toString())));
     }
 
     // 不是需要实现的方法,没有被核心框架调用

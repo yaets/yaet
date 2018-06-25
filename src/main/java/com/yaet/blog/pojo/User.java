@@ -3,7 +3,9 @@ package com.yaet.blog.pojo;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    
+
+    private static final long serialVersionUID = 2772845780330806969L;
+
     private String userId;
 
     private String userName;

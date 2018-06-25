@@ -2,6 +2,7 @@ package com.yaet.blog.controller;
 
 import com.yaet.blog.pojo.User;
 import com.yaet.blog.service.UserService;
+import com.yaet.blog.utils.RedisCacheUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +17,28 @@ import java.util.List;
 @RequestMapping("")
 public class UserController {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RedisCacheUtil redisCacheUtil;
+
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ModelAndView listUser(ModelAndView modelAndView) {
 
         List<User> users = userService.list();
+
+        // redis
+        if (!redisCacheUtil.hasKey("users")) {
+            redisCacheUtil.set("users", users);
+        }
+
+        Object obj = redisCacheUtil.get("users");
+        LOGGER.info(obj.toString());
+
         modelAndView.addObject("users", users);
 
         modelAndView.setViewName("listUser");
